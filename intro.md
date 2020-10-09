@@ -150,7 +150,7 @@ Linux/Mac:
 # to Savio, while on your local machine
 scp bayArea.csv hannsode@dtn.brc.berkeley.edu:~/.
 scp bayArea.csv hannsode@dtn.brc.berkeley.edu:~/data/newName.csv
-scp bayArea.csv hannsode@dtn.brc.berkeley.edu:/global/scratch/paciorek/.
+scp bayArea.csv hannsode@dtn.brc.berkeley.edu:/global/scratch/hannsode/.
 
 # from Savio, while on your local machine
 scp hannsode@dtn.brc.berkeley.edu:~/data/newName.csv ~/Documents/.
@@ -195,7 +195,7 @@ Globus also provides a [command line interface](https://docs.globus.org/cli/) th
 
 # Data transfer: Box & bDrive
 
-Box and bDrive (the Cal branded Google Drive) both provide **unlimited**, free, secured, and encrypted content storage of files to Berkeley affiliates. They are both good options for backup and long-term storage. While the total storage is unlimited, Box has a maximum file size of 15 Gb while bDrive has a maximum file size of 5Tb.
+Box and bDrive (the Cal branded Google Drive) both provide free, secured, and encrypted content storage of files to Berkeley affiliates. bDrive provides unlimited storage, while Box no longer does. They are both good options for backup and long-term storage. Box has a maximum file size of 15 Gb while bDrive has a maximum file size of 5Tb.
 
 You can interact with both services via web browser, and both services provide a desktop app you can use to move and sync files between your computer and the cloud.
 
@@ -205,8 +205,6 @@ You can interact with both services via web browser, and both services provide a
  - [Drive desktop app](https://www.google.com/drive/download/)
 
 For more ambitious users, Box has a Python-based SDK that can be used to write scripts for file transfers. For more information on how to do this, check out the `BoxAuthenticationBootstrap.ipynb` and `TransferFilesFromBoxToSavioScratch.ipynb` from BRC's cyberinfrastructure engineer on [GitHub](https://github.com/ucberkeley/brc-cyberinfrastructure/tree/dev/analysis-workflows/notebooks)
-
-BRC is working (long-term) on making Globus available for transfer to/from Box and bDrive, but it's not available yet.
 
 # Data transfer: Box & bDrive with rclone
 
@@ -411,10 +409,15 @@ Here are some of the variables that may be useful: SLURM_NTASKS, SLURM_CPUS_PER_
 
 Some common paradigms are:
 
- - MPI jobs that use *one* CPU per task for each of *n* tasks
- - openMP/threaded jobs that use *c* CPUs (on one node) for *one* task
- - hybrid MPI+threaded jobs that use *c* CPUs for each of *n* tasks
-
+ - one node, many CPUS
+   - openMP/threaded jobs - one task, *c* CPUs for the task
+   - Python/R/GNU parallel - many tasks, one per CPU at any given time
+ - many nodes, many CPUs
+   - MPI jobs that use one CPU per task for each of *n* tasks, spread across multiple nodes
+   - Python/R/GNU parallel - many tasks, one per CPU at any given time
+ - hybrid jobs that use *c* CPUs for each of *n* tasks
+   - e.g., MPI+threaded code
+   
 There are lots more examples of job submission scripts for different kinds of parallelization (multi-node (MPI), multi-core (openMP), hybrid, etc.) [here](http://research-it.berkeley.edu/services/high-performance-computing/running-your-jobs#Job-submission-with-specific-resource-requirements).
 
 
@@ -734,9 +737,12 @@ We're also including some articles and documentation that may be helpful in gett
 
 # Upcoming events and hiring
 
-
-
- - Research IT is hiring graduate students as domain consultants. See flyers or talk to one of us.
-
+ - Research IT is hiring graduate students as domain consultants. Please talk to one of us if interested.
+ - [Sensitive Data](https://research-it.berkeley.edu/services/sensitive-and-protected-data): We are building a service and platform for researchers working with sensitive data. Secure VMs are available now and secure HPC cluster + storage are coming soon at a baseline capacity at no cost. Please get in touch if you are working with sensitive data. 
+ - [Cloud Computing Meetup](https://www.meetup.com/ucberkeley_cloudmeetup/)
+   - Monthly on last Tuesday
+   - Next meeting on 10/27 
+ - [Securing Research Data Working Group](https://dlab.berkeley.edu/working-groups/securing-research-data-working-group)
+   - Monthly, next meeting on 10/26 
 
 

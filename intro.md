@@ -9,7 +9,7 @@ We'll do this mostly as a demonstration. We encourage you to login to your accou
 
 Much of this material is based on the extensive Savio documention we have prepared and continue to prepare, available at [http://research-it.berkeley.edu/services/high-performance-computing](http://research-it.berkeley.edu/services/high-performance-computing).
 
-The materials for this tutorial are available using git at the short URL ([https://tinyurl.com/brc-oct20](https://tinyurl.com/brc-oct20)), the  GitHub URL ([https://github.com/ucb-rit/savio-training-intro-fall-2020](https://github.com/ucb-rit/savio-training-intro-fall-2020)), or simply as a [zip file](https://github.com/ucb-rit/savio-training-intro-fall-2020/archive/master.zip).
+The materials for this tutorial are available using git at the short URL ([https://tinyurl.com/brc-oct20](https://tinyurl.com/brc-oct20)), the  GitHub URL ([https://github.com/ucb-rit/savio-training-intro-fall-2020](https://github.com/ucb-rit/savio-training-intro-fall-2020)), or simply as a [zip file](https://github.com/ucb-rit/savio-training-intro-fall-2020/archive/main.zip).
 
 # Outline
 
@@ -44,6 +44,17 @@ This training session will cover the following topics:
      - How to get additional help
      - Upcoming events
 
+# Few special notes about Github 
+
+Github is a *code-repository-as-a-service* company that allows a user to store their Git based code project somewhere. It is simply a garage. Git, a low-level (i.e. Command Line based) software, is the true powerhouse that creates the lambos you park in the garage. 
+
+Github is not the only code repository service. *E.g. Gitlab, Bitbucket*
+
+### Github made a social justice decision Oct 1, 2020
+
+Github recently (*as in Oct 1, 2020*) changed the default **branch naming convention** from **"master" to "main"**. These names are trivial - "master" was a convention that is used but is a thing of the past. 
+
+Github made this decision as a call for the tech community to stop using unnecessary references to slavery. We struggly support this decision. We may still incorrectly use the terms "master branch" out of habit. Please correct us if we do so.
 
 # System capabilities and hardware
 

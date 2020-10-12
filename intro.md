@@ -54,7 +54,7 @@ Github is not the only code repository service. *E.g. Gitlab, Bitbucket*
 
 Github recently (*as in Oct 1, 2020*) changed the default **branch naming convention** from **"master" to "main"**. These names are trivial - "master" was a convention that is used but is a thing of the past. 
 
-Github made this decision as a call for the tech community to stop using unnecessary references to slavery. We struggly support this decision. We may still incorrectly use the terms "master branch" out of habit. Please correct us if we do so.
+Github made this decision as a call for the tech community to stop using unnecessary references to slavery. We support this decision. We may still incorrectly use the terms "master branch" out of habit. Please correct us if we do so.
 
 # System capabilities and hardware
 
@@ -100,7 +100,7 @@ Here is a simplified view of how accessing a supercomputer actually works. **SLU
 
 1. Allocates access to resources (compute nodes) to users for some duration of time
 2. Handles starting, executing, and monitoring jobs on allocated nodes 
-3. Manages queue of submitting jobs (*asyncronous*)
+3. Manages queue of submitting jobs (*asynchronous*)
 
 <center><img src="savio_abstracted.jpeg"></center>
 

@@ -85,13 +85,13 @@ Savio has a few different kinds of nodes:
 
 # Savio computing nodes
 
-Let's take a look at the hardware specifications of the computing nodes on the cluster [(see the *Hardware Configuration* section of this document)](http://research-it.berkeley.edu/services/high-performance-computing/user-guide/savio-user-guide).
+Let's take a look at the [hardware specifications](http://research-it.berkeley.edu/services/high-performance-computing/user-guide/hardware-config) of the computing nodes on teh cluster.
 
-The nodes are divided into several pools, called partitions. These partitions have different restrictions and costs associated with them ([see the *Scheduler Configuration* section of this document](http://research-it.berkeley.edu/services/high-performance-computing/user-guide/savio-user-guide) and [the associated costs in Service Units](http://research-it.berkeley.edu/services/high-performance-computing/service-units-savio#Scaling)). Any job you submit must be submitted to a partition to which you have access.
+The nodes are divided into several pools, called partitions. These partitions have different restrictions and costs associated with them ([see the *Scheduler Configuration* section of this document](http://research-it.berkeley.edu/services/high-performance-computing/user-guide/running-your-jobs/scheduler-config) and [the associated costs in Service Units](http://research-it.berkeley.edu/services/high-performance-computing/service-units-savio#Scaling)). Any job you submit must be submitted to a partition to which you have access.
 
 # Disk space options (home, scratch, group, condo storage)
 
-You have access to the following disk space, described [here in the *Storage and Backup* section](http://research-it.berkeley.edu/services/high-performance-computing/user-guide/savio-user-guide).
+You have access to the following disk space, described [here in the *Storage and Backup* section](http://research-it.berkeley.edu/services/high-performance-computing/user-guide/storing-data).
 
 Those directories:
 
@@ -208,7 +208,7 @@ For more ambitious users, Box has a Python-based SDK that can be used to write s
 
 # Data transfer: Box & bDrive with rclone
 
-[rclone](https://rclone.org/) is a command line program that you can use to sync files between both services and Savio. You can read instructions for using rclone on Savio [with Box here](http://research-it.berkeley.edu/services/high-performance-computing/transferring-data-between-savio-and-your-uc-berkeley-box-0) and [with bDrive here](http://research-it.berkeley.edu/services/research-data-management-service/take-advantage-unlimited-bdrive-and-box-storage-using).
+[rclone](https://rclone.org/) is a command line program that you can use to sync files between both services and Savio. You can read instructions for using rclone on Savio [with Box and bDrive here](http://research-it.berkeley.edu/services/high-performance-computing/user-guide/transferring-data/rclone-box-bdrive).
 
 Briefly the steps to set up rclone on Savio to interact with Box are as follows.
 

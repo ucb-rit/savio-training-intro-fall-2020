@@ -141,10 +141,48 @@ Here are instructions for [doing this setup, and for logging in](http://research
 
 Then to login:
 ```
-ssh SAVIO_USERNAME@hpc.brc.berkeley.edu
+$ ssh SAVIO_USERNAME@hpc.brc.berkeley.edu
 ```
 
-Then enter XXXXXYYYYYY where XXXXXX is your PIN and YYYYYY is the one-time password. YYYYYY will be shown when you open your *Google authenticator* app on your phone/tablet.
+Your screen will then show the following: 
+
+```
+$ password:
+```
+
+On this prompt you will enter **your PIN followed by the one-time password** your Google Authenticator app will generate on your phone / tablet. 
+
+**Note: you will NOT see any characters display on the "password:" prompt. This is a security measure** that is very simple and very smart to have implemented.
+
+## Example login 
+
+Let's pretend that my username, *omuellerklein*, has a PIN *1234*. Then I would do the following: 
+
+```
+$ ssh omuellerklein@hpc.brc.berkeley.edu
+```
+
+Then the following would appear: 
+
+```
+$ ssh omuellerklein@hpc.brc.berkeley.edu
+$ password: 
+```
+
+*(Remember: our PIN, in this example 1234, is the first set of digits entered at the password prompt.)*
+
+At the password prompt I would enter 1234*YYYYYY*, where *YYYYYY* is the one-time password from my Google authenticator app from my phone/tablet. *YYYYYY* will be shown when you open your *Google authenticator* app on your phone/tablet. However, *YYYYYY* will appear in the format *YYY YYY* on your authenticator app. Make sure you do not type the space between the two triplets of Ys on your password prompt. Google is just messing with you.
+
+My phone's Google authenticator is going to display **567 890** in this example. Therefore, the full password prompt entered is **1234567890**. Wow - that is an interesting pattern! 
+
+It will look as so **if you were actually able to see the password prompt:**
+
+```
+$ ssh omuellerklein@hpc.brc.berkeley.edu
+$ password: **1234567890**
+```
+
+## Using the Linux environment
 
 One can then navigate around and get information using standard UNIX commands such as `ls`, `cd`, `du`, `df`, etc. There is a lot of material online about using the UNIX command line (also called the shell; 'bash' is one common variation). Here is a [basic tutorial](https://github.com/berkeley-scf/tutorial-unix-basics).
 
@@ -173,12 +211,12 @@ Linux/Mac:
 
 ```bash
 # to Savio, while on your local machine
-scp bayArea.csv hannsode@dtn.brc.berkeley.edu:~/.
-scp bayArea.csv hannsode@dtn.brc.berkeley.edu:~/data/newName.csv
-scp bayArea.csv hannsode@dtn.brc.berkeley.edu:/global/scratch/hannsode/.
+scp bayArea.csv omuellerklein@dtn.brc.berkeley.edu:~/.
+scp bayArea.csv omuellerklein@dtn.brc.berkeley.edu:~/data/newName.csv
+scp bayArea.csv omuellerklein@dtn.brc.berkeley.edu:/global/scratch/omuellerklein/.
 
 # from Savio, while on your local machine
-scp hannsode@dtn.brc.berkeley.edu:~/data/newName.csv ~/Documents/.
+scp omuellerklein@dtn.brc.berkeley.edu:~/data/newName.csv ~/Documents/.
 ```
 
 If you can ssh to your local machine or want to transfer files to other systems on to which you can ssh, you can login to the dtn node to execute the scp commands:
@@ -249,8 +287,8 @@ rclone commands:
 rclone listremotes # Lists configured remotes.
 rclone lsd remote_name: # Lists directories, but not files. Note the trailing colon.
 rclone size remote_name:home # Prints size and number of objects in remote "home" directory. This can take a very long time when tallying Tbs of files.
-rclone copy /global/home/users/hannsode remote_name:savio_home/hannsode # Copies my entire home directory to a new directory on the remote.
-rclone copy /global/scratch/hannsode/genomes remote_name:genome_sequences # Copies entire directory contents to a dirctory on the remote with a new name.
+rclone copy /global/home/users/omuellerklein remote_name:savio_home/omuellerklein # Copies my entire home directory to a new directory on the remote.
+rclone copy /global/scratch/omuellerklein/genomes remote_name:genome_sequences # Copies entire directory contents to a dirctory on the remote with a new name.
 ```
 
 Finally you can set up [special purpose accounts](https://calnetweb.berkeley.edu/calnet-departments/special-purpose-accounts-spa) so files are owned at a project level rather than by individuals.

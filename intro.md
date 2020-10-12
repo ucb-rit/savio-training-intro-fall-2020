@@ -764,7 +764,7 @@ We're also including some articles and documentation that may be helpful in gett
 
 # Upcoming events and hiring
 
- - Research IT is hiring graduate students as domain consultants. Please talk to one of us if interested.
+ - Research IT is hiring graduate students as [domain consultants](https://research-it.berkeley.edu/brc/domain-consultant). Please talk to one of us if interested.
  - [Sensitive Data](https://research-it.berkeley.edu/services/sensitive-and-protected-data): We are building a service and platform for researchers working with sensitive data. Secure VMs are available now and secure HPC cluster + storage are coming soon at a baseline capacity at no cost. Please get in touch if you are working with sensitive data. 
  - [Cloud Computing Meetup](https://www.meetup.com/ucberkeley_cloudmeetup/)
    - Monthly on last Tuesday

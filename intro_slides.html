@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <meta name="author" content="February 10, 2020" />
+  <meta name="author" content="October 12, 2020" />
   <title>Savio introductory training: Basic usage of the Berkeley Savio high-performance computing cluster</title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
@@ -55,15 +55,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="slide titlepage">
   <h1 class="title">Savio introductory training: Basic usage of the Berkeley Savio high-performance computing cluster</h1>
   <p class="author">
-February 10, 2020
+October 12, 2020
   </p>
-  <p class="date">James Duncan and Chris Paciorek</p>
+  <p class="date">Oliver Muellerklein and Chris Paciorek</p>
 </div>
 <div id="introduction" class="slide section level1">
 <h1>Introduction</h1>
 <p>We'll do this mostly as a demonstration. We encourage you to login to your account and try out the various examples yourself as we go through them.</p>
 <p>Much of this material is based on the extensive Savio documention we have prepared and continue to prepare, available at <a href="http://research-it.berkeley.edu/services/high-performance-computing" class="uri">http://research-it.berkeley.edu/services/high-performance-computing</a>.</p>
-<p>The materials for this tutorial are available using git at the short URL (<a href="https://tinyurl.com/brc-feb20" class="uri">https://tinyurl.com/brc-feb20</a>), the GitHub URL (<a href="https://github.com/ucb-rit/savio-training-intro-spring-2020" class="uri">https://github.com/ucb-rit/savio-training-intro-spring-2020</a>), or simply as a <a href="https://github.com/ucb-rit/savio-training-intro-spring-2020/archive/master.zip">zip file</a>.</p>
+<p>The materials for this tutorial are available using git at the short URL (<a href="https://tinyurl.com/brc-oct20" class="uri">https://tinyurl.com/brc-oct20</a>), the GitHub URL (<a href="https://github.com/ucb-rit/savio-training-intro-fall-2020" class="uri">https://github.com/ucb-rit/savio-training-intro-fall-2020</a>), or simply as a <a href="https://github.com/ucb-rit/savio-training-intro-fall-2020/archive/master.zip">zip file</a>.</p>
 </div>
 <div id="outline" class="slide section level1">
 <h1>Outline</h1>
@@ -158,12 +158,12 @@ February 10, 2020
 </div>
 <div id="savio-computing-nodes" class="slide section level1">
 <h1>Savio computing nodes</h1>
-<p>Let's take a look at the hardware specifications of the computing nodes on the cluster <a href="http://research-it.berkeley.edu/services/high-performance-computing/user-guide/savio-user-guide">(see the <em>Hardware Configuration</em> section of this document)</a>.</p>
-<p>The nodes are divided into several pools, called partitions. These partitions have different restrictions and costs associated with them (<a href="http://research-it.berkeley.edu/services/high-performance-computing/user-guide/savio-user-guide">see the <em>Scheduler Configuration</em> section of this document</a> and <a href="http://research-it.berkeley.edu/services/high-performance-computing/service-units-savio#Scaling">the associated costs in Service Units</a>). Any job you submit must be submitted to a partition to which you have access.</p>
+<p>Let's take a look at the <a href="http://research-it.berkeley.edu/services/high-performance-computing/user-guide/hardware-config">hardware specifications</a> of the computing nodes on teh cluster.</p>
+<p>The nodes are divided into several pools, called partitions. These partitions have different restrictions and costs associated with them (<a href="http://research-it.berkeley.edu/services/high-performance-computing/user-guide/running-your-jobs/scheduler-config">see the <em>Scheduler Configuration</em> section of this document</a> and <a href="http://research-it.berkeley.edu/services/high-performance-computing/service-units-savio#Scaling">the associated costs in Service Units</a>). Any job you submit must be submitted to a partition to which you have access.</p>
 </div>
 <div id="disk-space-options-home-scratch-group-condo-storage" class="slide section level1">
 <h1>Disk space options (home, scratch, group, condo storage)</h1>
-<p>You have access to the following disk space, described <a href="http://research-it.berkeley.edu/services/high-performance-computing/user-guide/savio-user-guide">here in the <em>Storage and Backup</em> section</a>.</p>
+<p>You have access to the following disk space, described <a href="http://research-it.berkeley.edu/services/high-performance-computing/user-guide/storing-data">here in the <em>Storage and Backup</em> section</a>.</p>
 <p>Those directories:</p>
 <ul>
 <li><code>/global/home/users/SAVIO_USERNAME</code></li>
@@ -201,7 +201,7 @@ February 10, 2020
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># to Savio, while on your local machine</span>
 <span class="fu">scp</span> bayArea.csv hannsode@dtn.brc.berkeley.edu:~/.
 <span class="fu">scp</span> bayArea.csv hannsode@dtn.brc.berkeley.edu:~/data/newName.csv
-<span class="fu">scp</span> bayArea.csv hannsode@dtn.brc.berkeley.edu:/global/scratch/paciorek/.
+<span class="fu">scp</span> bayArea.csv hannsode@dtn.brc.berkeley.edu:/global/scratch/hannsode/.
 
 <span class="co"># from Savio, while on your local machine</span>
 <span class="fu">scp</span> hannsode@dtn.brc.berkeley.edu:~/data/newName.csv ~/Documents/.</code></pre></div>
@@ -231,7 +231,7 @@ tar -xvzf files.tgz</code></pre>
 </div>
 <div id="data-transfer-box-bdrive" class="slide section level1">
 <h1>Data transfer: Box &amp; bDrive</h1>
-<p>Box and bDrive (the Cal branded Google Drive) both provide <strong>unlimited</strong>, free, secured, and encrypted content storage of files to Berkeley affiliates. They are both good options for backup and long-term storage. While the total storage is unlimited, Box has a maximum file size of 15 Gb while bDrive has a maximum file size of 5Tb.</p>
+<p>Box and bDrive (the Cal branded Google Drive) both provide free, secured, and encrypted content storage of files to Berkeley affiliates. bDrive provides unlimited storage, while Box no longer does. They are both good options for backup and long-term storage. Box has a maximum file size of 15 Gb while bDrive has a maximum file size of 5Tb.</p>
 <p>You can interact with both services via web browser, and both services provide a desktop app you can use to move and sync files between your computer and the cloud.</p>
 <ul>
 <li><a href="http://box.berkeley.edu">Box web app</a></li>
@@ -240,11 +240,10 @@ tar -xvzf files.tgz</code></pre>
 <li><a href="https://www.google.com/drive/download/">Drive desktop app</a></li>
 </ul>
 <p>For more ambitious users, Box has a Python-based SDK that can be used to write scripts for file transfers. For more information on how to do this, check out the <code>BoxAuthenticationBootstrap.ipynb</code> and <code>TransferFilesFromBoxToSavioScratch.ipynb</code> from BRC's cyberinfrastructure engineer on <a href="https://github.com/ucberkeley/brc-cyberinfrastructure/tree/dev/analysis-workflows/notebooks">GitHub</a></p>
-<p>BRC is working (long-term) on making Globus available for transfer to/from Box and bDrive, but it's not available yet.</p>
 </div>
 <div id="data-transfer-box-bdrive-with-rclone" class="slide section level1">
 <h1>Data transfer: Box &amp; bDrive with rclone</h1>
-<p><a href="https://rclone.org/">rclone</a> is a command line program that you can use to sync files between both services and Savio. You can read instructions for using rclone on Savio <a href="http://research-it.berkeley.edu/services/high-performance-computing/transferring-data-between-savio-and-your-uc-berkeley-box-0">with Box here</a> and <a href="http://research-it.berkeley.edu/services/research-data-management-service/take-advantage-unlimited-bdrive-and-box-storage-using">with bDrive here</a>.</p>
+<p><a href="https://rclone.org/">rclone</a> is a command line program that you can use to sync files between both services and Savio. You can read instructions for using rclone on Savio <a href="http://research-it.berkeley.edu/services/high-performance-computing/user-guide/transferring-data/rclone-box-bdrive">with Box and bDrive here</a>.</p>
 <p>Briefly the steps to set up rclone on Savio to interact with Box are as follows.</p>
 <p>Configuration (on dtn): <code>rclone config</code></p>
 <ul>
@@ -394,9 +393,14 @@ wwall -j &lt;JOB_ID&gt;</code></pre>
 <p>Here are some of the variables that may be useful: SLURM_NTASKS, SLURM_CPUS_PER_TASK, SLURM_NODELIST, SLURM_NNODES.</p>
 <p>Some common paradigms are:</p>
 <ul>
-<li>MPI jobs that use <em>one</em> CPU per task for each of <em>n</em> tasks</li>
-<li>openMP/threaded jobs that use <em>c</em> CPUs (on one node) for <em>one</em> task</li>
-<li>hybrid MPI+threaded jobs that use <em>c</em> CPUs for each of <em>n</em> tasks</li>
+<li>one node, many CPUS</li>
+<li>openMP/threaded jobs - one task, <em>c</em> CPUs for the task</li>
+<li>Python/R/GNU parallel - many tasks, one per CPU at any given time</li>
+<li>many nodes, many CPUs</li>
+<li>MPI jobs that use one CPU per task for each of <em>n</em> tasks, spread across multiple nodes</li>
+<li>Python/R/GNU parallel - many tasks, one per CPU at any given time</li>
+<li>hybrid jobs that use <em>c</em> CPUs for each of <em>n</em> tasks</li>
+<li>e.g., MPI+threaded code</li>
 </ul>
 <p>There are lots more examples of job submission scripts for different kinds of parallelization (multi-node (MPI), multi-core (openMP), hybrid, etc.) <a href="http://research-it.berkeley.edu/services/high-performance-computing/running-your-jobs#Job-submission-with-specific-resource-requirements">here</a>.</p>
 </div>
@@ -620,7 +624,7 @@ results</code></pre>
 <div id="alternative-python-parallelization-dask" class="slide section level1">
 <h1>Alternative Python Parallelization: Dask</h1>
 <p>In addition to iPyParallel, one of the newer tools in the Python space is <a href="http://dask.pydata.org/en/latest/">Dask</a>, which provides out-of-the-box parallelization more easily without much setup or too much additional work. Dask, as a Python package, extends Numpy/Pandas syntax for arrays and dataframes that already exists and introduces native parallelization to these data structures, which speeds up analyses. Since Dask dataframes/arrays are descendants of the Pandas dataframe and Numpy array, they are compatible with any existing code and can serve as a plug-in replacement, with performance enhancements for multiple cores/nodes. It's also worth noting that Dask is useful for scaling up to large clusters like Savio but can also be useful for speeding up analyses on your local computer.</p>
-<p>We have materials available from <a href="https://github.com/ucb-rit/savio-training-dask-2019">our spring 2019 training on using Dask on Savio</a> and from a <a href="https://github.com/berkeley-scf/tutorial-dask-future">tutorial on using Dask</a>.</p>
+<p>We have materials available from <a href="https://github.com/ucb-rit/savio-training-dask-2019">our fall 2019 training on using Dask on Savio</a> and from a <a href="https://github.com/berkeley-scf/tutorial-dask-future">tutorial on using Dask</a>.</p>
 <p>We're also including some articles and documentation that may be helpful in getting started:</p>
 <ul>
 <li><a href="https://dask.pydata.org/en/latest/why.html">Why Dask?</a></li>
@@ -640,21 +644,25 @@ results</code></pre>
 <li>For questions about computing resources in general, including cloud computing:
 <ul>
 <li>brc@berkeley.edu</li>
-<li>office hours: Wed. 1:30-3:00 and Thur. 9:30-11:00 here in AIS</li>
+<li>office hours: Wed. 1:30-3:00 and Thur. 9:30-11:00 <a href="https://research-it.berkeley.edu/programs/berkeley-research-computing/research-computing-consulting">on Zoom</a></li>
 </ul></li>
 <li>For questions about data management (including HIPAA-protected data):
 <ul>
 <li>researchdata@berkeley.edu</li>
-<li>office hours: Wed. 1:30-3:00 and Thur. 9:30-11:00 here in AIS</li>
+<li>office hours: Wed. 1:30-3:00 and Thur. 9:30-11:00 <a href="https://research-it.berkeley.edu/programs/berkeley-research-computing/research-computing-consulting">on Zoom</a></li>
 </ul></li>
 </ul>
 </div>
 <div id="upcoming-events-and-hiring" class="slide section level1">
 <h1>Upcoming events and hiring</h1>
 <ul>
-<li><p>Lots of other events at Berkeley this week during <a href="https://guides.lib.berkeley.edu/ldw2020">Love Data Week</a>.</p></li>
-<li><p>We're planning a training on basic principles of and use of parallelization on Savio and similar systems for sometime in April.</p></li>
-<li><p>Research IT is hiring graduate students as domain consultants. See flyers or talk to one of us.</p></li>
+<li>Research IT is hiring graduate students as domain consultants. Please talk to one of us if interested.</li>
+<li><a href="https://research-it.berkeley.edu/services/sensitive-and-protected-data">Sensitive Data</a>: We are building a service and platform for researchers working with sensitive data. Secure VMs are available now and secure HPC cluster + storage are coming soon at a baseline capacity at no cost. Please get in touch if you are working with sensitive data.</li>
+<li><a href="https://www.meetup.com/ucberkeley_cloudmeetup/">Cloud Computing Meetup</a></li>
+<li>Monthly on last Tuesday</li>
+<li>Next meeting on 10/27</li>
+<li><a href="https://dlab.berkeley.edu/working-groups/securing-research-data-working-group">Securing Research Data Working Group</a></li>
+<li>Monthly, next meeting on 10/26</li>
 </ul>
 </div>
 </body>

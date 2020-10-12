@@ -4,7 +4,7 @@ Materials for Savio introductory training for October 12, 2020.
 
 The main document is `intro.html` (or `intro_slides.html` if you prefer a version that appears in slide-show format rather than as one long HTML page).
 
-To directly view the main document on the web, simply [click here](https://github.com/ucb-rit/savio-training-intro-fall-2020/blob/master/intro_slides.md).
+To directly view the main document on the web, simply [click here](https://github.com/ucb-rit/savio-training-intro-fall-2020/blob/master/intro.md).
 
 If you're not familiar with Git or Github you can download the materials as a [zip file](https://github.com/ucb-rit/savio-training-intro-fall-2020/archive/master.zip)
 

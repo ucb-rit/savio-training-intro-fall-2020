@@ -431,14 +431,14 @@ wwall -j &lt;JOB_ID&gt;</code></pre>
 <p>Here are some of the variables that may be useful: SLURM_NTASKS, SLURM_CPUS_PER_TASK, SLURM_NODELIST, SLURM_NNODES.</p>
 <p>Some common paradigms are:</p>
 <ul>
-<li>1 node, many CPUS</li>
+<li><p>1 node, many CPUs</p></li>
 <li>openMP/threaded jobs - 1 task, <em>c</em> CPUs for the task</li>
 <li>Python/R/GNU parallel - many tasks, 1 per CPU at any given time</li>
-<li>many nodes, many CPUs</li>
+<li><p>many nodes, many CPUs</p></li>
 <li>MPI jobs that use 1 CPU per task for each of <em>n</em> tasks, spread across multiple nodes</li>
 <li>Python/R/GNU parallel - many tasks, 1 per CPU at any given time</li>
-<li>hybrid jobs that use <em>c</em> CPUs for each of <em>n</em> tasks</li>
-<li>e.g., MPI+threaded code</li>
+<li><p>hybrid jobs that use <em>c</em> CPUs for each of <em>n</em> tasks</p></li>
+<li><p>e.g., MPI+threaded code</p></li>
 </ul>
 <p>There are lots more examples of job submission scripts for different kinds of parallelization (multi-node (MPI), multi-core (openMP), hybrid, etc.) <a href="http://research-it.berkeley.edu/services/high-performance-computing/running-your-jobs#Job-submission-with-specific-resource-requirements">here</a>.</p>
 </div>

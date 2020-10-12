@@ -90,6 +90,20 @@ Savio has a few different kinds of nodes:
  - data transfer nodes: for transferring data to/from Savio
  - compute nodes: for computational tasks
 
+# Simplified diagram of Savio 
+
+Here is a simplified view of how accessing a supercomputer actually works. **SLURM is (the most) essential** to allow Savio and many other High Performance Clusters around the world work.
+
+**SLURM** is the *Simple Linux Utility Resource Manager*. SLURM is very similar to *flight dispatcher + air traffic controller* at an airport. In this analogy planes are the jobs (*i.e. your code in a batch file*) that you send off into the sky / cluster...this also works to have a mental framework for Cloud Computing (*a bit different from HPC clusters like Savio but plenty of overlap*).
+
+### What SLURM does
+
+1. Allocates access to resources (compute nodes) to users for some duration of time
+2. Handles starting, executing, and monitoring jobs on allocated nodes 
+3. Manages queue of submitting jobs (*asyncronous*)
+
+<center><img src="savio_abstracted.jpeg"></center>
+
 # Conceptual diagram of Savio
 
 <center><img src="savio_diagram.jpeg"></center>

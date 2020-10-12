@@ -473,16 +473,13 @@ Here are some of the variables that may be useful: SLURM_NTASKS, SLURM_CPUS_PER_
 Some common paradigms are:
 
 - 1 node, many CPUs
-
-   - openMP/threaded jobs - 1 task, *c* CPUs for the task
-   - Python/R/GNU parallel - many tasks, 1 per CPU at any given time
+    - openMP/threaded jobs - 1 task, *c* CPUs for the task
+    - Python/R/GNU parallel - many tasks, 1 per CPU at any given time
 - many nodes, many CPUs
-
-   - MPI jobs that use 1 CPU per task for each of *n* tasks, spread across multiple nodes
-   - Python/R/GNU parallel - many tasks, 1 per CPU at any given time
+    - MPI jobs that use 1 CPU per task for each of *n* tasks, spread across multiple nodes
+    - Python/R/GNU parallel - many tasks, 1 per CPU at any given time
 - hybrid jobs that use *c* CPUs for each of *n* tasks
-
-   - e.g., MPI+threaded code
+    - e.g., MPI+threaded code
    
 There are lots more examples of job submission scripts for different kinds of parallelization (multi-node (MPI), multi-core (openMP), hybrid, etc.) [here](http://research-it.berkeley.edu/services/high-performance-computing/running-your-jobs#Job-submission-with-specific-resource-requirements).
 

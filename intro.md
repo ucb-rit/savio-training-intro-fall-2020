@@ -363,7 +363,7 @@ You can also login to the node where you are running and use commands like *top*
 srun --jobid=<JOB_ID> --pty /bin/bash
 ```
 
-Note that except for the *savio2_htc*  and *savio2_gpu* partitions, all jobs are given exclusive access to the entire node or nodes assigned to the job (and your account is charged for all of the cores on the node(s)).
+Note that except for the *savio2_htc*  and various GPU partitions, all jobs are given exclusive access to the entire node or nodes assigned to the job (and your account is charged for all of the cores on the node(s)).
 
 
 # Parallel job submission
@@ -374,7 +374,7 @@ If you are submitting a job that uses multiple nodes, you'll need to carefully s
  - `--ntasks-per-node`: indicates the number of tasks (i.e., processes) one wants to run on each node
  - `--cpus-per-task` (or `-c`): indicates the number of cpus to be used for each task
 
-In addition, in some cases it can make sense to use the `--ntasks` (or `-n`) option to indicate the total number of tasks and let the scheduler determine how many nodes and tasks per node are needed. In general `--cpus-per-task` will be one except when running threaded code.  
+In addition, in some cases it can make sense to use the `--ntasks` (or `-n`) option to indicate the total number of tasks and let the scheduler determine how many nodes and tasks per node are needed. In general `--cpus-per-task` will be 1 except when running threaded code.  
 
 Here's an example job script for a job that uses MPI for parallelizing over multiple nodes:
 
@@ -409,12 +409,12 @@ Here are some of the variables that may be useful: SLURM_NTASKS, SLURM_CPUS_PER_
 
 Some common paradigms are:
 
- - one node, many CPUS
-   - openMP/threaded jobs - one task, *c* CPUs for the task
-   - Python/R/GNU parallel - many tasks, one per CPU at any given time
+ - 1 node, many CPUS
+   - openMP/threaded jobs - 1 task, *c* CPUs for the task
+   - Python/R/GNU parallel - many tasks, 1 per CPU at any given time
  - many nodes, many CPUs
-   - MPI jobs that use one CPU per task for each of *n* tasks, spread across multiple nodes
-   - Python/R/GNU parallel - many tasks, one per CPU at any given time
+   - MPI jobs that use 1 CPU per task for each of *n* tasks, spread across multiple nodes
+   - Python/R/GNU parallel - many tasks, 1 per CPU at any given time
  - hybrid jobs that use *c* CPUs for each of *n* tasks
    - e.g., MPI+threaded code
    
@@ -479,7 +479,7 @@ You may have many serial jobs to run. It may be more cost-effective to collect t
 
 Here are some options:
 
-  - using [Savio's HT Helper tool](http://research-it.berkeley.edu/services/high-performance-computing/user-guide/hthelper-script) to run many computational tasks (e.g., thousands of simulations, scanning tens of thousands of parameter values, etc.) as part of single Savio job submission
+  - using [GNU parallel](http://research-it.berkeley.edu/services/high-performance-computing/user-guide/running-your-jobs/gnu-parallel) to run many computational tasks (e.g., thousands of simulations, scanning tens of thousands of parameter values, etc.) as part of single Savio job submission
   - using [single-node parallelism](https://github.com/berkeley-scf/tutorial-parallel-basics) and [multiple-node parallelism](https://github.com/berkeley-scf/tutorial-parallel-distributed) in Python, R, and MATLAB
     - parallel R tools such as *future*, *foreach*, *parLapply*, and *mclapply*
     - parallel Python tools such as  *ipyparallel*, *Dask*, and *ray*
@@ -521,7 +521,9 @@ check_usage.sh -a fc_cuore
 
 # Example use of standard software: IPython and R notebooks through JupyterHub
 
-Savio allows one to [run Jupyter-based notebooks via a browser-based service called Jupyterhub](http://research-it.berkeley.edu/services/high-performance-computing/using-jupyter-notebooks-and-jupyterhub-savio). 
+Savio allows one to [run Jupyter-based notebooks via a browser-based service called Jupyterhub](http://research-it.berkeley.edu/services/high-performance-computing/using-jupyter-notebooks-and-jupyterhub-savio).
+
+This is soon to be replaced by a more reliable and user-friendly service called Open OnDemand.
 
 Let's see a brief demo of an IPython notebook:
 
@@ -643,7 +645,7 @@ We'll do this interactively though often this sort of thing would be done via a 
 cp bayArea.csv /global/scratch/paciorek/.
 
 srun -A co_stat -p savio2  --nodes=2 --ntasks-per-node=24 -t 30:0 --pty bash
-module load r/3.4.2 r-packages 
+module load r/3.6.3 r-packages 
 mpirun R CMD BATCH --no-save parallel-multi.R parallel-multi.Rout &
 ```
 

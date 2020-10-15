@@ -171,8 +171,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>You also need to set up your smartphone or tablet with <em>Google Authenticator</em> to generate one-time passwords for you.</p>
 <p>Here are instructions for <a href="http://research-it.berkeley.edu/services/high-performance-computing/logging-savio">doing this setup, and for logging in</a>.</p>
 <p>Then to login:</p>
-<pre><code>ssh SAVIO_USERNAME@hpc.brc.berkeley.edu</code></pre>
-<p>Then enter XXXXXYYYYYY where XXXXXX is your PIN and YYYYYY is the one-time password. YYYYYY will be shown when you open your <em>Google authenticator</em> app on your phone/tablet.</p>
+<pre><code>$ ssh SAVIO_USERNAME@hpc.brc.berkeley.edu</code></pre>
+<p>Your screen will then show the following:</p>
+<pre><code>$ password:</code></pre>
+<p>On this prompt you will enter <strong>your PIN followed by the one-time password</strong> your Google Authenticator app will generate on your phone / tablet.</p>
+<p><strong>Note: you will NOT see any characters display on the &quot;password:&quot; prompt. This is a security measure</strong> that is very simple and very smart to have implemented.</p>
+<h2 id="example-login">Example login</h2>
+<p>Let's pretend that my username, <em>omuellerklein</em>, has a PIN <em>1234</em>. Then I would do the following:</p>
+<pre><code>$ ssh omuellerklein@hpc.brc.berkeley.edu</code></pre>
+<p>Then the following would appear:</p>
+<pre><code>$ ssh omuellerklein@hpc.brc.berkeley.edu
+$ password: </code></pre>
+<p><em>(Remember: our PIN, in this example 1234, is the first set of digits entered at the password prompt.)</em></p>
+<p>At the password prompt I would enter 1234<em>YYYYYY</em>, where <em>YYYYYY</em> is the one-time password from my Google authenticator app from my phone/tablet. <em>YYYYYY</em> will be shown when you open your <em>Google authenticator</em> app on your phone/tablet. However, <em>YYYYYY</em> will appear in the format <em>YYY YYY</em> on your authenticator app. Make sure you do not type the space between the two triplets of Ys on your password prompt. Google is just messing with you.</p>
+<p>My phone's Google authenticator is going to display <strong>567 890</strong> in this example. Therefore, the full password prompt entered is <strong>1234567890</strong>. Wow - that is an interesting pattern!</p>
+<p>It will look as so <strong>if you were actually able to see the password prompt:</strong></p>
+<pre><code>$ ssh omuellerklein@hpc.brc.berkeley.edu
+$ password: **1234567890**</code></pre>
+<h2 id="using-the-linux-environment">Using the Linux environment</h2>
 <p>One can then navigate around and get information using standard UNIX commands such as <code>ls</code>, <code>cd</code>, <code>du</code>, <code>df</code>, etc. There is a lot of material online about using the UNIX command line (also called the shell; 'bash' is one common variation). Here is a <a href="https://github.com/berkeley-scf/tutorial-unix-basics">basic tutorial</a>.</p>
 <p>If you want to be able to open programs with graphical user interfaces:</p>
 <pre><code>ssh -Y SAVIO_USERNAME@hpc.brc.berkeley.edu</code></pre>
@@ -186,12 +202,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>You need to use the Savio data transfer node, <code>dtn.brc.berkeley.edu</code>. The file <code>bayArea.csv</code> is too large to store on Github; you can obtain it <a href="https://www.stat.berkeley.edu/share/paciorek/bayArea.csv">here</a>.</p>
 <p>Linux/Mac:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># to Savio, while on your local machine</span>
-<span class="fu">scp</span> bayArea.csv hannsode@dtn.brc.berkeley.edu:~/.
-<span class="fu">scp</span> bayArea.csv hannsode@dtn.brc.berkeley.edu:~/data/newName.csv
-<span class="fu">scp</span> bayArea.csv hannsode@dtn.brc.berkeley.edu:/global/scratch/hannsode/.
+<span class="fu">scp</span> bayArea.csv omuellerklein@dtn.brc.berkeley.edu:~/.
+<span class="fu">scp</span> bayArea.csv omuellerklein@dtn.brc.berkeley.edu:~/data/newName.csv
+<span class="fu">scp</span> bayArea.csv omuellerklein@dtn.brc.berkeley.edu:/global/scratch/omuellerklein/.
 
 <span class="co"># from Savio, while on your local machine</span>
-<span class="fu">scp</span> hannsode@dtn.brc.berkeley.edu:~/data/newName.csv ~/Documents/.</code></pre></div>
+<span class="fu">scp</span> omuellerklein@dtn.brc.berkeley.edu:~/data/newName.csv ~/Documents/.</code></pre></div>
 <p>If you can ssh to your local machine or want to transfer files to other systems on to which you can ssh, you can login to the dtn node to execute the scp commands:</p>
 <pre><code>ssh SAVIO_USERNAME@dtn.brc.berkeley.edu
 [SAVIO_USERNAME@dtn ~]$ scp ~/file.csv OTHER_USERNAME@other.domain.edu:~/data/.</code></pre>
@@ -237,8 +253,8 @@ tar -xvzf files.tgz</code></pre>
 <pre><code>rclone listremotes # Lists configured remotes.
 rclone lsd remote_name: # Lists directories, but not files. Note the trailing colon.
 rclone size remote_name:home # Prints size and number of objects in remote &quot;home&quot; directory. This can take a very long time when tallying Tbs of files.
-rclone copy /global/home/users/hannsode remote_name:savio_home/hannsode # Copies my entire home directory to a new directory on the remote.
-rclone copy /global/scratch/hannsode/genomes remote_name:genome_sequences # Copies entire directory contents to a dirctory on the remote with a new name.</code></pre>
+rclone copy /global/home/users/omuellerklein remote_name:savio_home/omuellerklein # Copies my entire home directory to a new directory on the remote.
+rclone copy /global/scratch/omuellerklein/genomes remote_name:genome_sequences # Copies entire directory contents to a dirctory on the remote with a new name.</code></pre>
 <p>Finally you can set up <a href="https://calnetweb.berkeley.edu/calnet-departments/special-purpose-accounts-spa">special purpose accounts</a> so files are owned at a project level rather than by individuals.</p>
 <h1 id="editing-files">Editing files</h1>
 <p>You are welcome to edit your files on Savio (rather than copying files back and forth from your laptop and editing them on your laptop). To do so you'll need to use some sort of editor. Savio has <code>vim</code>, <code>emacs</code>, and <code>nano</code> installed. Just start the editor from a login node.</p>
@@ -362,14 +378,20 @@ wwall -j &lt;JOB_ID&gt;</code></pre>
 <p>Here are some of the variables that may be useful: SLURM_NTASKS, SLURM_CPUS_PER_TASK, SLURM_NODELIST, SLURM_NNODES.</p>
 <p>Some common paradigms are:</p>
 <ul>
-<li>1 node, many CPUS</li>
+<li>1 node, many CPUs
+<ul>
 <li>openMP/threaded jobs - 1 task, <em>c</em> CPUs for the task</li>
 <li>Python/R/GNU parallel - many tasks, 1 per CPU at any given time</li>
-<li>many nodes, many CPUs</li>
+</ul></li>
+<li>many nodes, many CPUs
+<ul>
 <li>MPI jobs that use 1 CPU per task for each of <em>n</em> tasks, spread across multiple nodes</li>
 <li>Python/R/GNU parallel - many tasks, 1 per CPU at any given time</li>
-<li>hybrid jobs that use <em>c</em> CPUs for each of <em>n</em> tasks</li>
+</ul></li>
+<li>hybrid jobs that use <em>c</em> CPUs for each of <em>n</em> tasks
+<ul>
 <li>e.g., MPI+threaded code</li>
+</ul></li>
 </ul>
 <p>There are lots more examples of job submission scripts for different kinds of parallelization (multi-node (MPI), multi-core (openMP), hybrid, etc.) <a href="http://research-it.berkeley.edu/services/high-performance-computing/running-your-jobs#Job-submission-with-specific-resource-requirements">here</a>.</p>
 <h1 id="interactive-jobs">Interactive jobs</h1>
@@ -604,11 +626,15 @@ results</code></pre>
 <ul>
 <li>Research IT is hiring graduate students as <a href="https://research-it.berkeley.edu/brc/domain-consultant">domain consultants</a>. Please talk to one of us if interested.</li>
 <li><a href="https://research-it.berkeley.edu/services/sensitive-and-protected-data">Sensitive Data</a>: We are building a service and platform for researchers working with sensitive data. Secure VMs are available now and secure HPC cluster + storage are coming soon at a baseline capacity at no cost. Please get in touch if you are working with sensitive data.</li>
-<li><a href="https://www.meetup.com/ucberkeley_cloudmeetup/">Cloud Computing Meetup</a></li>
+<li><a href="https://www.meetup.com/ucberkeley_cloudmeetup/">Cloud Computing Meetup</a>
+<ul>
 <li>Monthly on last Tuesday</li>
 <li>Next meeting on 10/27</li>
-<li><a href="https://dlab.berkeley.edu/working-groups/securing-research-data-working-group">Securing Research Data Working Group</a></li>
+</ul></li>
+<li><a href="https://dlab.berkeley.edu/working-groups/securing-research-data-working-group">Securing Research Data Working Group</a>
+<ul>
 <li>Monthly, next meeting on 10/26</li>
+</ul></li>
 </ul>
 </body>
 </html>

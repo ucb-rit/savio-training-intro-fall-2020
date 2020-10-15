@@ -472,14 +472,14 @@ Here are some of the variables that may be useful: SLURM_NTASKS, SLURM_CPUS_PER_
 
 Some common paradigms are:
 
-- 1 node, many CPUS
-   - openMP/threaded jobs - 1 task, *c* CPUs for the task
-   - Python/R/GNU parallel - many tasks, 1 per CPU at any given time
+- 1 node, many CPUs
+    - openMP/threaded jobs - 1 task, *c* CPUs for the task
+    - Python/R/GNU parallel - many tasks, 1 per CPU at any given time
 - many nodes, many CPUs
-   - MPI jobs that use 1 CPU per task for each of *n* tasks, spread across multiple nodes
-   - Python/R/GNU parallel - many tasks, 1 per CPU at any given time
+    - MPI jobs that use 1 CPU per task for each of *n* tasks, spread across multiple nodes
+    - Python/R/GNU parallel - many tasks, 1 per CPU at any given time
 - hybrid jobs that use *c* CPUs for each of *n* tasks
-   - e.g., MPI+threaded code
+    - e.g., MPI+threaded code
    
 There are lots more examples of job submission scripts for different kinds of parallelization (multi-node (MPI), multi-core (openMP), hybrid, etc.) [here](http://research-it.berkeley.edu/services/high-performance-computing/running-your-jobs#Job-submission-with-specific-resource-requirements).
 
@@ -802,12 +802,12 @@ We're also including some articles and documentation that may be helpful in gett
 
 # Upcoming events and hiring
 
- - Research IT is hiring graduate students as [domain consultants](https://research-it.berkeley.edu/brc/domain-consultant). Please talk to one of us if interested.
- - [Sensitive Data](https://research-it.berkeley.edu/services/sensitive-and-protected-data): We are building a service and platform for researchers working with sensitive data. Secure VMs are available now and secure HPC cluster + storage are coming soon at a baseline capacity at no cost. Please get in touch if you are working with sensitive data. 
- - [Cloud Computing Meetup](https://www.meetup.com/ucberkeley_cloudmeetup/)
-   - Monthly on last Tuesday
-   - Next meeting on 10/27 
- - [Securing Research Data Working Group](https://dlab.berkeley.edu/working-groups/securing-research-data-working-group)
-   - Monthly, next meeting on 10/26 
+- Research IT is hiring graduate students as [domain consultants](https://research-it.berkeley.edu/brc/domain-consultant). Please talk to one of us if interested.
+- [Sensitive Data](https://research-it.berkeley.edu/services/sensitive-and-protected-data): We are building a service and platform for researchers working with sensitive data. Secure VMs are available now and secure HPC cluster + storage are coming soon at a baseline capacity at no cost. Please get in touch if you are working with sensitive data. 
+- [Cloud Computing Meetup](https://www.meetup.com/ucberkeley_cloudmeetup/)
+    - Monthly on last Tuesday
+    - Next meeting on 10/27 
+- [Securing Research Data Working Group](https://dlab.berkeley.edu/working-groups/securing-research-data-working-group)
+    - Monthly, next meeting on 10/26 
 
 
